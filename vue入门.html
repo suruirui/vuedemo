@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue入门</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<h1 id="demo">Hello,{{name}}</h1>
+</body>
+<script>
+		//创建Vue对象
+		var app = new Vue({
+			el:'#demo',   //声明vue管理的边界，相当于选择器
+			data:{
+				name:'Jack'
+			}        //核心作用是存放显示在页面中的数据，需要是一个对象
+		});
+		//可以使用app.name访问data中数据 ，也可以修改app.name值
+	</script>
+</html>

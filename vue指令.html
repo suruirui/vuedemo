@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue指令</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<!-- v-text指令 表示操作元素中的纯文本 -->
+	<h1 id="demo" v-text="'今年是'+year+'年,'+month+'月'"></h1>
+	<hr>
+	<div id="test">
+		<p>姓名：{{person.name}}</p>
+		<p>年龄：{{person.gender}}</p>
+		<p>性别：{{person.age}}</p>
+	</div>
+	<hr>
+	<!-- v-html指令 操作html -->
+	<!-- <div id="box" v-html="img"></div> -->
+	<!-- v-bind指令 操作元素属性 -->
+	<a v-bind:href="url" id="attr">baidu</a>
+	<!-- Vue控制css -->
+	<div v-bind:style="styles" id="css">您好</div>
+	<!-- vue中使用简单的js表达式 -->
+	<div id="express">
+		<img v-bind:src="num+'.jpg'" alt="">
+		<p>{{num==1?'美女':'柯南'}}</p>
+	</div>
+	<!-- v-show 控制元素显示与隐藏-->
+	<p id="song" v-show="seen">
+		曾梦想仗剑走天涯 <br>
+		看一看世界的繁华 <br>
+		年少的心总有些轻狂 <br>
+		如今你四海为家 <br>
+	</p>
+</body>
+<script>
+	var app = new Vue({
+		 el:'#demo', //Vue的管理边界
+		 data:{
+		 	year:new Date().getFullYear(),
+		 	month:new Date().getMonth()+1
+		 }
+	});
+
+	var test = new Vue({
+		el:'#test',
+		data:{
+			person:{
+				name:'Rose',
+				gender:'女',
+				age:20
+			}
+		}
+	});
+
+	// var box = new Vue({
+	// 	el:'#box',
+	// 	data:{
+	// 		img:'<img src="1.jpg">'
+	// 	}
+	// });
+
+	var attr = new Vue({
+		el:'#attr',
+		data:{
+			url:'www.baidu.com'
+		}
+	});
+
+	var css = new Vue({
+		el:'#css',
+		data:{
+			styles:{  //控制css的styles需要是一个对象 键是css属性名(驼峰命名法) 
+				color:'cyan',
+				fontWeight:'bold',
+				fontSize:'30px',
+				backgroundColor:'yellow'
+			}
+		}
+	});
+
+	var express = new Vue({
+		el:'#express',
+		data:{
+			num:1
+		}
+	});
+
+	var song = new Vue({
+		el:'#song',
+		data:{
+			seen:true
+		}
+	});
+</script>
+</html>
