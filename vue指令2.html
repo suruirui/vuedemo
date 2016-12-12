@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue指令2</title>
+</head>
+<body>
+	<!-- v-else	 -->
+	<!-- v-for -->
+	<!-- v-on  @事件绑定-->
+	<div id="demo">
+		<button v-on:click="kikme">按钮</button>
+		<button v-on:dblclick="dbkikme">按钮2</button>
+		<button @mouseenter="enter">鼠标进入事件</button>
+		<button @mouseleave="leave">鼠标移出事件</button>
+	</div>
+	<!-- v-model双向数据绑定-->
+	<div id="test">
+		<input type="text" v-model="txt">
+		{{txt}}
+	</div>
+	<!-- v-for -->
+	<ul id="stars">
+		<li v-for="(singer,index) in singers">
+			{{singer.no}} {{singer.name}} （索引值为：{{index}}）
+		</li>
+	</ul>
+</body>
+<script src="vue.js"></script>
+<script>
+	// v-for
+	var stars = new Vue({
+		el:"#stars",
+		data:{
+			singers:[
+				{no:1,name:'王菲'},
+				{no:2,name:'陈奕迅'},
+				{no:3,name:'张学友'},
+				{no:4,name:'周杰伦'}
+			]
+		}
+	})
+
+	//v-model
+	var test = new Vue({
+		el:'#test',
+		data:{
+			txt:'111'	
+		}
+	})
+	//事件绑定
+	var app = new Vue({
+		el:'#demo',
+		data:{
+
+		},
+		methods:{
+			kikme:function(){
+				console.log('点我啊。');
+			},
+			dbkikme:function(){
+				console.log('双击我。');
+			},
+			enter:function(){
+				console.log('鼠标进入');
+			},
+			leave:function(){
+				console.log('鼠标移出');
+			}
+		}
+	})
+</script>
+</html>
