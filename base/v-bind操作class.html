@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常用指令v-class</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: #ff0;
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+	<!-- 对象语法 之直接字面量-->
+	<div :class="{box:isBox}" :style="mstyle"></div>
+	<button @click="change">切换样式</button>
+</div>
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	var c = new Vue({
+		el:"#box",
+		data:{
+			isBox:true,
+			mstyle:{
+				border:'1px solid red',
+				margin:'50px'
+			}
+		},
+		methods:{
+			change:function(){
+				this.isBox ?this.isBox = '':this.isBox = true;
+			}
+		}
+	});
+
+</script>
+</html>

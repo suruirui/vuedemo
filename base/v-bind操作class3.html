@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常用指令v-class3</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: #ff0;
+		}
+		.box2{
+			border:1px solid red;
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+	<!-- 对象语法 之数组-->
+	<!-- <div :class="[boxClass,box2Class]"></div> -->
+	<!-- 对象语法 之数组 +条件运算符-->
+	<div :class="[isBox?boxClass:'',box2Class]"></div>
+	<button @click="change">切换样式</button>
+</div>
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	var c = new Vue({
+		el:"#box",
+		data:{
+			isBox:true,
+			boxClass:'box',
+			box2Class:'box2'
+		},
+		methods:{
+			change:function(){
+				this.isBox? this.isBox = false:this.isBox = true;
+			}
+		}
+	});
+
+</script>
+</html>
