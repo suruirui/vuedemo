@@ -71,6 +71,8 @@
 				}
 				this.newBook.id = parseInt(maxId) + 1;
 			    this.books.push(this.newBook);
+			    //清空新书
+				this.newBook = {};
 			}	 
 		}
 	})

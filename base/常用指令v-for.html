@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-hello</title>
+</head>
+<body>
+<div class="box">
+	<ul>
+		<li v-for="value in arr">
+			{{value}}
+		</li>
+	</ul>
+	<ul>
+		<li v-for="(value,index) in arr">
+			{{value}}-{{ index }}
+		</li>
+	</ul>
+	<ol>
+		<li v-for="value in person">
+			{{value}}
+		</li>
+	</ol>
+	<ol>
+		<li v-for="(value,key) in person">
+			{{key}}::{{value}}
+		</li>
+	</ol>
+	<ul> 
+		<li v-for="n in 7">
+			<p>{{n}}</p>
+		</li>
+	</ul>
+</div>
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	var c = new Vue({
+		el:'.box',  //选择器
+		data:{
+			msg:'hello world',
+			msg2:10,
+			msg3:true,
+			arr:['apple','orange','banana'],
+			person:{
+				name:'jack',
+				age:'20'
+			}
+		}
+	});
+</script>
+</html>

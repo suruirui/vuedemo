@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-show显示隐藏</title>
+	<style>
+		.demo{
+			width:100px;height:100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+<div class="box">
+	<button v-on:click='show()'>显示</button> 
+	<button v-on:click='hide()'>隐藏</button>
+	<button v-on:click='toggle()'>切换</button> <br>
+	<div class="demo" v-show="a"></div>
+</div>
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	var c = new Vue({  
+		el:'.box',  //选择器
+		data:{
+			a:true
+		},
+		methods:{
+			show:function(){
+				this.a = true;
+			},
+			hide:function(){
+				this.a = false;
+			},
+			toggle:function(){
+				this.a?this.a = false :this.a = true;
+			}
+		}
+	});
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义过滤器</title>
+</head>
+<body>
+<div id="box">
+	{{ msg | capitalize | lowercase | upperCase}}  <br>
+	{{ msg | upperCase}}   <br>
+	{{money}}
+</div>
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	var c = new Vue({
+		el:'#box',
+		data:{
+			msg:'hello world',
+			money:12
+		},
+		 filters: {
+   			 capitalize: function (value) {
+    			  if (!value) return '';
+      			  value = value.toString();
+     			  return value.charAt(0).toUpperCase() + value.slice(1);
+  			  },
+  			  lowercase:function(value){
+  			  		if (!value) return '';
+  			  		return value.toLowerCase();
+  			  },
+  			  upperCase:function(value){
+  			  		if (!value) return '';
+  			  		return value.toUpperCase();
+  			  }
+  		}
+	});
+
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件深入-键盘事件</title>
+</head>
+<body>
+<input type="text" id="demo" @keydown.enter="show(event)">
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	//使用事件对象
+	var c = new Vue({
+		el:'#demo',
+		data:{
+		},
+		methods:{
+			show:function(ev){
+				// if(ev.keyCode == 13){
+					alert("你按回车了");
+				// }
+			}
+		}
+	});
+
+</script>
+</html>

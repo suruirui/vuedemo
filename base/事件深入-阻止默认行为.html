@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件深入-阻止默认行为</title>
+</head>
+<body>
+
+<form action="#" id="form">
+	<button id="demo" @click.prevent="show(event)">提交</button>
+</form>
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	//使用事件对象
+	var c = new Vue({
+		el:'#form',
+		data:{
+		},
+		methods:{
+			show:function(ev){
+				alert(1);
+				// ev.preventDefault();  //阻止默认行为原生写法
+			}
+		}
+	});
+
+</script>
+</html>

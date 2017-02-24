@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-hello</title>
+</head>
+<body>
+<div class="box">
+	<!-- v-model常用于表单元素 实现双向数据绑定 -->
+	<input type="text" v-model="msg"> <br>
+	{{msg}}  <br>
+	{{msg2}}  <br>
+	{{msg3}}  <br>
+	{{arr}}  <br>
+	{{person}}
+</div>
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	var c = new Vue({
+		el:'.box',  //选择器
+		data:{
+			msg:'hello world',
+			msg2:10,
+			msg3:true,
+			arr:['apple','orange','banana'],
+			person:{
+				name:'jack',
+				age:'20'
+			}
+		}
+	});
+</script>
+</html>

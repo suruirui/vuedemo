@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-on绑定事件</title>
+</head>
+<body>
+<div class="box">
+	<button v-on:click='show()'>点击</button> <br>
+	<button @mouseout='add()'>点击</button>
+	<ul>
+		<li v-for='value in arr'>
+			{{value}}
+		</li>
+	</ul>
+</div>
+</body>
+<script src="../bower_components/vue/dist/vue.min.js"></script>
+<script>
+	var c = new Vue({  
+		el:'.box',  //选择器
+		data:{
+			msg:'hello world',
+			msg2:10,
+			msg3:true,
+			arr:['apple','orange','banana'],
+			person:{
+				name:'jack',
+				age:'20'
+			}
+		},
+		methods:{
+			show:function(){
+				console.log('hello');
+			},
+			add:function(){
+				this.arr.push('buoluo');
+			}
+		}
+	});
+</script>
+</html>
